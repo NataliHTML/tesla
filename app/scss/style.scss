@@ -3,5 +3,271 @@
 @import "reset";
 @import "libs";
 @import "global";
+.header {
+	height: 100vh;
+	position: absolute;
+	z-index: 5;
+	background: rgba(0, 0, 0, 0.3);
+	left: 0;
+	right: 0;
+}
+.header-top {
+	display: flex;
+	justify-content: space-between;
+}
+.logo {
+	padding-top: 36px;
+	margin-bottom: 29px;
+}
+.header-btn {
+	width: 60px;
+	height: 60px;
+	border: 1px solid $white;
+	margin-top: 31px;
+	background: rgba(255, 255, 255, 0.1);
+	cursor: pointer;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	div {
+		width: 36px;
+		height: 2px;
+		background-color: $white;
+		margin: 5px 0;
+	}
+}
+.header-content {
+	&__title {
+		font-size: 96px;
+		line-height: 112px;
+		font-family: "Roboto", sans-serif;
+		margin-bottom: 40px;
+	}
+	&__text {
+		width: 284px;
+		margin-bottom: 25px;
+	}
+}
+.menu {
+	background-color: #000;
+	position: absolute;
+	top: 0;
+	left: -100%;
+	width: 100%;
+	transition: all 0.5s;
+	z-index: 7;
+}
+.menu.active {
+	left: 0;
+}
+.container-menu {
+	position: relative;
+}
+// Вначале делаем background-color:#fff; потом целимся в этот квадрат; right: 15px; padding от container смещает кнопку
+.close-btn {
+	width: 50px;
+	height: 50px;
+	position: absolute;
+	top: 31px;
+	right: 15px;
+	cursor: pointer;
+}
+.close-btn::after,
+.close-btn::before {
+	content: "";
+	width: 70px;
+	height: 2px;
+	background-color: $white;
+	position: absolute;
+	transform-origin: left;
+}
+.close-btn::after {
+	transform: rotate(45deg);
+}
+.close-btn::before {
+	transform: rotate(-45deg);
+	bottom: -1px;
+}
+.menu__list {
+	height: 100vh;
+	display: flex;
+	align-items: center;
+	ul {
+		list-style: none;
+	}
+	a {
+		font-weight: 700;
+		font-size: 48px;
+		line-height: 56px;
+		display: inline-block;
+		min-width: 368px;
+		border-bottom: 3px solid $red;
+		padding: 30px 25px 14px 0px;
+		transition: all 0.5s;
+		&:hover {
+			border-color: $white;
+			color: $red;
+			transform: scale(1.2);
+			margin-left: 37px;
+		}
+	}
+}
+.slider {
+	&__item {
+		height: 100vh;
+		background-repeat: no-repeat;
+		background-size: cover;
+		background-position: center;
+	}
+}
+.slider .slick-dots button {
+	border-radius: 50%;
+	font-size: 0;
+	width: 15px;
+	height: 15px;
+	border: none;
+	padding: 0;
+	background-color: $title;
+	cursor: pointer;
+	outline: none;
+}
+.slider .slick-dots .slick-active button {
+	background-color: $white;
+}
+.slider .slick-dots li {
+	display: inline-block;
+	margin: 0 5px;
+}
+.slider .slick-dots {
+	margin: -55px auto 0;
+	position: relative;
+	z-index: 6;
+	max-width: 1230px;
+	padding: 0 15px;
+}
+.statistics {
+	margin: 160px 0 100px;
+}
+.statistics-items {
+	display: flex;
+	justify-content: space-around;
+	text-align: center;
+}
+.statistics-item {
+	&__title {
+		margin-bottom: 19px;
+	}
+	&__num {
+		font-size: 96px;
+		line-height: 112px;
+		font-family: "Roboto", sans-serif;
+		font-weight: 400;
+		margin-bottom: 7px;
+		span {
+			font-size: 24px;
+			line-height: 28px;
+			margin-left: -20px;
+		}
+		&--speed span {
+			display: inline-block;
+			position: relative;
+		}
+		&--speed span::before {
+			content: "+";
+			position: absolute;
+			top: -65px;
+			left: 0;
+		}
+	}
+	&__descr {
+		color: $red;
+	}
+}
+.video {
+	margin-bottom: 100px;
+}
+.advantages {
+	&__title {
+		font-size: 36px;
+		line-height: 42px;
+		color: $red;
+		position: absolute;
+		top: 0;
+	}
+	&__title--bottom {
+		right: 0;
+		top: auto;
+		bottom: 0;
+	}
+	&__text {
+		width: 303px;
+	}
+	&__text ul {
+		list-style: none;
+	}
+	&__descr {
+		max-width: 570px;
+		width: 100%;
+	}
+}
+.advantages-inner__row {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	margin-bottom: 100px;
+	position: relative;
+}
+.design {
+	&__images {
+		margin-bottom: 100px;
+	}
+}
+.design-row {
+	display: flex;
+	justify-content: space-between;
+	margin-bottom: 100px;
+	&__item {
+		max-width: 570px;
+		width: 100%;
+		display: flex;
+		justify-content: space-between;
+	}
+	&__item-num {
+		color: $red;
+	}
+	&__item-text {
+		max-width: 430px;
+		padding-top: 25px;
+	}
+}
+.footer {
+	background-color: $bg;
+	padding: 83px 0 20px;
+	&__btn {
+		text-align: center;
+		margin-bottom: 83px;
+		.button:hover {
+			background-color: $title;
+		}
+	}
+	&__copy {
+		text-align: center;
+		font-weight: 700;
+		ul {
+			list-style: none;
+			li {
+				display: inline-block;
+				padding: 0 10px;
+				position: relative;
+				& + li::before {
+					content: "|";
+					position: absolute;
+					left: -5px;
+				}
+			}
+		}
+	}
+}
 
 @import "media";
